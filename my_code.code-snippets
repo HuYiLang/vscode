@@ -1,0 +1,253 @@
+{
+	// Place your global snippets here. Each snippet is defined under a snippet name and has a scope, prefix, body and
+	// description. Add comma separated ids of the languages where the snippet is applicable in the scope field. If scope
+	// is left empty or omitted, the snippet gets applied to all languages. The prefix is what is
+	// used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
+	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders.
+	// Placeholders with the same ids are connected.
+	// Example:
+	// "Print to console": {
+	// 	"scope": "javascript,typescript",
+	// 	"prefix": "log",
+	// 	"body": [
+	// 		"console.log('$1');",
+	// 		"$2"
+	// 	],
+	// 	"description": "Log output to console"
+	// }
+	/* create file */
+	"C file": {
+		"prefix": ".c",
+		"body": [
+			"/**** (C) COPYRIGHT $CURRENT_YEAR ${1:your name} ****",
+			"* File Name\t\t\t:  $TM_FILENAME",
+			"* Author\t\t\t:  ${1:your name}",
+			"* Version\t\t\t:  V1.0",
+			"* Date\t\t\t\t:  $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+			"* Description\t\t:  $2",
+			"***********************************/\n",
+			"#include <stdio.h>\n",
+			"int main ()\n{\n    $0\n\n    printf(\"hello world\\n\");\n",
+			"    return 0;\n}",
+			"\n/* EOF */\n"
+		],
+		"description": "file: xx.c"
+	},
+	"Cpp file": {
+		"prefix": ".cpp",
+		"body": [
+			"/**** (C) COPYRIGHT $CURRENT_YEAR ${1:your name} ****",
+			"* File Name\t\t\t:  $TM_FILENAME",
+			"* Author\t\t\t:  ${1:your name}",
+			"* Version\t\t\t:  V1.0",
+			"* Date\t\t\t\t:  $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+			"* Description\t\t:  $2",
+			"***********************************/\n",
+			"#include <iostream>\n",
+			"using std::cout;",
+			"using std::endl;\n",
+			"int main ()\n{",
+			"    $0\n",
+			"    cout << \"hello world\" << endl;\n",
+			"    return 0;\n}",
+			"\n/* EOF */\n"
+		],
+		"description": "file: xx.cpp"
+	},
+	"H file": {
+		"prefix": ".h",
+		"body": [
+			"/**** (C) COPYRIGHT $CURRENT_YEAR ${1:your name} ****",
+			"* File Name\t\t\t:  $TM_FILENAME",
+			"* Author\t\t\t:  ${1:your name}",
+			"* Version\t\t\t:  V1.0",
+			"* Date\t\t\t\t:  $CURRENT_DATE/$CURRENT_MONTH/$CURRENT_YEAR",
+			"* Description\t\t:  $2",
+			"***********************************/\n",
+			"#ifndef ${3:SYMBOL}\n#define $3\n\n$4\n\n#endif\t// ${3:SYMBOL}",
+			"\n/* EOF */\n"
+		],
+		"description": "file: xx.h"
+	},
+	"makefile": {
+		"prefix": ".mk",
+		"body": [
+			"/* \n *\n*/\n",
+			"#ifndef ${1:SYMBOL}\n#define $1\n\n$3\n\n#endif\t// ${1:SYMBOL}",
+			"\n/* EOF */\n"
+		],
+		"description": "file: xx.mk"
+	},
+
+	/* declaration*/
+	"Include": {
+		"prefix": ".#I",
+		"body": [
+			"#include <${1:.h}>\n$0"
+		],
+		"description": "include <xx.h>"
+	},
+	"include": {
+		"prefix": ".#in",
+		"body": [
+			"#include \"${1:.h}\"\n$0"
+		],
+		"description": "include \"xx.h\""
+	},
+	"define": {
+		"prefix": ".#d",
+		"body": [
+			"#define ${1:key} ${2:value}\n$0"
+		],
+		"description": "#define"
+	},
+	"typedef": {
+		"prefix": ".ty",
+		"body": [
+			"typedef struct _${1:StructName} {\n\t$2\n}${3:StructName};\n$0"
+		],
+		"description": "typedef"
+	},
+	"enum": {
+		"prefix": ".en",
+		"body": [
+			"enum ${1:enumName} {\n\t$2,\n};\n"
+		],
+		"description": "enum"
+	},
+
+	/* function */
+	"class": {
+		"prefix": ".cl",
+		"body": [
+			"class ${1:MyClass}\n{\npublic:\n\t$2;\n\nprivate:\n\t$3;\n};\n"
+		],
+		"description": "class"
+	},
+	"void_function": {
+		"prefix": ".vo",
+		"body": [
+			"void ${1:function}(${2:params})\n{\n\t$3;\n}\n$0"
+		],
+		"description": "void_function"
+	},
+	"class_function": {
+		"prefix": ".f:",
+		"body": [
+			"int ${1:function}::${1:function}(${2:params})\n{\n\t$3;\n\treturn 0;\n}\n$0"
+		],
+		"description": "class_function"
+	},
+	"any function":{
+		"prefix": ".fu",
+		"body": "${1:int} ${2:name}($3) {\n\t$5\n\treturn ${4:0};\n}\n$0"
+	},
+
+	/* annotation */
+	"annotation": {
+		"prefix": "./",
+		"body": [
+			"/* $1 */\n$0"
+		],
+		"description": "annotation"
+	},
+	"EOF": {
+		"prefix": ".eo",
+		"body": [
+			"/* EOF */\n$0"
+		],
+		"description": "EOF"
+	},
+
+	/* control block */
+	"using": {
+		"prefix": ".us",
+		"body": [
+			"using std::$1;\n$0"
+		],
+		"description": "using std::"
+	},
+	"if": {
+		"prefix": ".if",
+		"body": [
+			"if (NULL == $1) {\n\t$2;\n}\nelse {\n\t$3;\n}"
+		],
+		"description": "if else"
+	},
+	"switch": {
+		"prefix": ".sw",
+		"body": [
+			"switch ($1) {\n\tcase $2: {\n\t\t$3;\n\t\tbreak;\n\t}\n\tdefault: {\n\t    break;\n\t}\n}\n$0"
+		],
+		"description": "switch case"
+	},
+	"case break":{
+		"prefix": ".ca",
+		"body": "case $1: {\n\t$2\n\tbreak;\n}"
+	},
+	"for": {
+		"prefix": ".fo",
+		"body": [
+			"for (${1:i} = 0; ${1:i} < ${2:count}; ++${1:i}) {\n\t$4;\n}\n$0"
+		],
+		"description": "for"
+	},
+	"do_while": {
+		"prefix": ".do",
+		"body": [
+			"do {\n\t$2;\n} while($1);\n$0"
+		],
+		"description": "do while"
+	},
+	"while": {
+		"prefix": ".wh",
+		"body": [
+			"while ($1) {\n\t$2;\n}\n$0"
+		],
+		"description": "while"
+	},
+
+	/* way */
+	"printf": {
+		"prefix": ".pr",
+		"body": [
+			"printf(\"${1:%s}\\n\", $2);\n$0"
+		],
+		"description": "printf"
+	},
+	"scanf":{
+		"prefix": ".sc",
+		"body": "scanf(\"${1:%s}\\n\", $2);$3\n$0"
+	},
+	"cout":{
+		"prefix": ".co",
+		"body": "cout << \"$1\" << endl;\n$0"
+	},
+	"write file": {
+		"prefix": ".wr",
+		"body": [
+			"FILE *${1:fp};\n${1:fp} = fopen (\"${2:filename.txt}\",\"w\");\nif (${1:fp}!=NULL)\n{\n\tfprintf(${1:fp},\"${3:Some String\\\\n}\");\n\tfclose (${1:fp});\n}"
+		],
+		"description": "write file"
+	},
+	"read file":{
+		"prefix": ".re",
+		"body": "FILE *${1:fp};\n${1:fp} = fopen (\"${2:filename.txt}\",\"r\");\nif (${1:fp}!=NULL)\n{\n\tfscanf(${1:fp},\"${3:Some String\\\\n}\", ${3:&var});\n\tfclose (${1:fp});\n}",
+		"description": "read file opeartion including fopen, fscanf and fclose."
+	},
+	"new":{
+		"prefix": ".ne",
+		"body": [
+			"${1:Point} *${2:temp} = new ${1:Point}(${3:params});\n",
+			"if (NULL != ${2:temp}) {\n\tdelete ${2:temp};\n\t${2:temp} = NULL;\n}\n$0"
+		],
+		"description": "new"
+	},
+	"=":{
+		"prefix": ".=",
+		"body": [
+			"${1:int} = ${2:int};"
+		],
+		"description": "="
+	}
+}
