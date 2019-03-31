@@ -79,11 +79,11 @@
 		"description": "include <xx.h>"
 	},
 	"include": {
-		"prefix": ".#in",
+		"prefix": ".in",
 		"body": [
 			"#include \"${1:.h}\""
 		],
-		"description": "include \"xx.h\""
+		"description": "include \"x.h\""
 	},
 	"define": {
 		"prefix": ".#d",
