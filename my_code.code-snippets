@@ -183,7 +183,7 @@
     "printf": {
         "prefix": ".pr",
         "body": [
-            "printf(\"$0: ${1:%s}\\n\", $2);"
+            "$1(\"$2: $3(%p)\\n\", $4);$5"
         ],
         "description": "printf"
     },
